@@ -1,0 +1,31 @@
+<h1>Listing hub_lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Github</th>
+      <th>Bitbucket</th>
+      <th>Codepen</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hub_lists.each do |hub_list| %>
+      <tr>
+        <td><%= hub_list.github %></td>
+        <td><%= hub_list.bitbucket %></td>
+        <td><%= hub_list.codepen %></td>
+        <td><%= hub_list.user %></td>
+        <td><%= link_to 'Show', hub_list %></td>
+        <td><%= link_to 'Edit', edit_hub_list_path(hub_list) %></td>
+        <td><%= link_to 'Destroy', hub_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hub list', new_hub_list_path %>
