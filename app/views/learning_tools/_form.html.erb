@@ -1,33 +1,28 @@
-<%= form_for(@learning_tool) do |f| %>
-  <% if @learning_tool.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@learning_tool.errors.count, "error") %> prohibited this learning_tool from being saved:</h2>
-
-      <ul>
-      <% @learning_tool.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @learning_tool, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :learning_material, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :learning_material, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :learning_section, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :learning_section, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :progress, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :progress, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :learning_material %><br>
-    <%= f.text_field :learning_material %>
-  </div>
-  <div class="field">
-    <%= f.label :learning_section %><br>
-    <%= f.text_field :learning_section %>
-  </div>
-  <div class="field">
-    <%= f.label :progress %><br>
-    <%= f.text_area :progress %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  learning_tools_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

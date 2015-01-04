@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = LearningTool -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => LearningTool %></h1>
+</div>
 
-<p>
-  <strong>Learning material:</strong>
-  <%= @learning_tool.learning_material %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:learning_material) %></dt>
+      <dd><pre class="prettyprint"><%= @learning_tool.learning_material %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:learning_section) %></dt>
+      <dd><pre class="prettyprint"><%= @learning_tool.learning_section %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:progress) %></dt>
+      <dd><pre class="prettyprint"><%= @learning_tool.progress %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Learning section:</strong>
-  <%= @learning_tool.learning_section %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              learning_tools_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_learning_tool_path(@learning_tool), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              learning_tool_path(@learning_tool),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Progress:</strong>
-  <%= @learning_tool.progress %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @learning_tool.user %>
-</p>
-
-<%= link_to 'Edit', edit_learning_tool_path(@learning_tool) %> |
-<%= link_to 'Back', learning_tools_path %>
