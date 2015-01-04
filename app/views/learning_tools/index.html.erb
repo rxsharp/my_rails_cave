@@ -1,0 +1,31 @@
+<h1>Listing learning_tools</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Learning material</th>
+      <th>Learning section</th>
+      <th>Progress</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @learning_tools.each do |learning_tool| %>
+      <tr>
+        <td><%= learning_tool.learning_material %></td>
+        <td><%= learning_tool.learning_section %></td>
+        <td><%= learning_tool.progress %></td>
+        <td><%= learning_tool.user %></td>
+        <td><%= link_to 'Show', learning_tool %></td>
+        <td><%= link_to 'Edit', edit_learning_tool_path(learning_tool) %></td>
+        <td><%= link_to 'Destroy', learning_tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Learning tool', new_learning_tool_path %>
