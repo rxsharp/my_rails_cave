@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Learning status:</strong>
+  <%= @learning_status.learning_status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @learning_status.user %>
+</p>
+
+<%= link_to 'Edit', edit_learning_status_path(@learning_status) %> |
+<%= link_to 'Back', learning_statuses_path %>

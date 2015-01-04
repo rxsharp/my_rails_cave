@@ -1,0 +1,27 @@
+<h1>Listing learning_statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Learning status</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @learning_statuses.each do |learning_status| %>
+      <tr>
+        <td><%= learning_status.learning_status %></td>
+        <td><%= learning_status.user %></td>
+        <td><%= link_to 'Show', learning_status %></td>
+        <td><%= link_to 'Edit', edit_learning_status_path(learning_status) %></td>
+        <td><%= link_to 'Destroy', learning_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Learning status', new_learning_status_path %>
