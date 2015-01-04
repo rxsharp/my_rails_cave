@@ -29,6 +29,7 @@ class LearningStatusesController < ApplicationController
   # POST /learning_statuses.json
   def create
     @learning_status = LearningStatus.new(learning_status_params)
+    @learning_status.user = current_user
 
     respond_to do |format|
       if @learning_status.save
