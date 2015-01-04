@@ -29,6 +29,7 @@ class LearningToolsController < ApplicationController
   # POST /learning_tools.json
   def create
     @learning_tool = LearningTool.new(learning_tool_params)
+    @learning_tool.user = current_user
 
     respond_to do |format|
       if @learning_tool.save
