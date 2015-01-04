@@ -29,6 +29,7 @@ class HubListsController < ApplicationController
   # POST /hub_lists.json
   def create
     @hub_list = HubList.new(hub_list_params)
+    @hub_list.user = current_user
 
     respond_to do |format|
       if @hub_list.save
