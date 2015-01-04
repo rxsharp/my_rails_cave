@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <%= link_to "My Application", defined?(root_path) ? root_path : "#", class: "navbar-brand" %>
+    <%= link_to "My Rails Cave", defined?(root_path) ? root_path : "#", class: "navbar-brand" %>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,6 +17,9 @@
     <ul class="nav navbar-nav navbar-right">
       <% if defined?(Devise) %>
         <% if user_signed_in? %>
+          <li><%= link_to "My Hubs", hub_lists_path %></li>        
+          <li><%= link_to "Add Learning Status", new_learning_status_path %></li>
+          <li><%= link_to "My Learning Materials", learning_tools_path %></li>        
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
             <ul class="dropdown-menu">
