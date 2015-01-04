@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :links
+
   resources :hub_lists
 
   resources :learning_statuses do
