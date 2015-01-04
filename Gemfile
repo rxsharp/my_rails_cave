@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-
-
+#mu_rails_cave
+ruby '2.1.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
@@ -48,3 +48,9 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'acts_as_votable', github: 'ryanto/acts_as_votable'
+
+#Production
+group :production do
+  gem 'pg',             '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end
