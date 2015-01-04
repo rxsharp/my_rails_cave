@@ -1,31 +1,40 @@
-<h1>Listing hub_lists</h1>
-
-<table>
+<%- model_class = HubList -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => HubList %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Github</th>
-      <th>Bitbucket</th>
-      <th>Codepen</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:github) %></th>
+      <th><%= model_class.human_attribute_name(:bitbucket) %></th>
+      <th><%= model_class.human_attribute_name(:codepen) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @hub_lists.each do |hub_list| %>
       <tr>
+        <td><%= hub_list.id %></td>
         <td><%= hub_list.github %></td>
         <td><%= hub_list.bitbucket %></td>
         <td><%= hub_list.codepen %></td>
-        <td><%= hub_list.user %></td>
-        <td><%= link_to 'Show', hub_list %></td>
-        <td><%= link_to 'Edit', edit_hub_list_path(hub_list) %></td>
-        <td><%= link_to 'Destroy', hub_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l hub_list.created_at, format: :long %></td>
+        <td>
+          <%= link_to hub_list_path(hub_list), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to hub_list_path(hub_list), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Hub list', new_hub_list_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_hub_list_path,
+            :class => 'btn btn-primary' %>

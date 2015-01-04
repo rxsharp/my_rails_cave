@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = HubList -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => HubList %></h1>
+</div>
 
-<p>
-  <strong>Github:</strong>
-  <%= @hub_list.github %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:github) %></dt>
+      <dd><pre class="prettyprint"><%= @hub_list.github %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:bitbucket) %></dt>
+      <dd><pre class="prettyprint"><%= @hub_list.bitbucket %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:codepen) %></dt>
+      <dd><pre class="prettyprint"><%= @hub_list.codepen %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Bitbucket:</strong>
-  <%= @hub_list.bitbucket %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              hub_lists_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_hub_list_path(@hub_list), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              hub_list_path(@hub_list),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Codepen:</strong>
-  <%= @hub_list.codepen %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @hub_list.user %>
-</p>
-
-<%= link_to 'Edit', edit_hub_list_path(@hub_list) %> |
-<%= link_to 'Back', hub_lists_path %>

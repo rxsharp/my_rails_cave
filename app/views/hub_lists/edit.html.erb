@@ -1,6 +1,5 @@
-<h1>Editing hub_list</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @hub_list %> |
-<%= link_to 'Back', hub_lists_path %>
+<%- model_class = HubList -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => HubList %></h1>
+</div>
+<%= render :partial => 'form' %>
