@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  learning_material: MyString
+  learning_section: MyString
+  progress: MyText
+  user_id: 
+
+two:
+  learning_material: MyString
+  learning_section: MyString
+  progress: MyText
+  user_id: 
