@@ -1,26 +1,24 @@
 <%- model_class = LearningTool -%>
+<div class="jumbotron">
+  <div class="container">
 <div class="page-header">
-  <h1><%=t '.title', :default => LearningTool %></h1>
+  <h1>My Learning Tools</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
       <th><%= model_class.human_attribute_name(:learning_material) %></th>
       <th><%= model_class.human_attribute_name(:learning_section) %></th>
       <th><%= model_class.human_attribute_name(:progress) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @learning_tools.each do |learning_tool| %>
       <tr>
-        <td><%= learning_tool.id %></td>
         <td><%= learning_tool.learning_material %></td>
         <td><%= learning_tool.learning_section %></td>
         <td><%= learning_tool.progress %></td>
-        <td><%=l learning_tool.created_at, format: :long %></td>
         <td>
           <%= link_to learning_tool_path(learning_tool), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>
@@ -38,3 +36,5 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_learning_tool_path,
             :class => 'btn btn-primary' %>
+  </div>
+<div/>
